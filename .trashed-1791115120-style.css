@@ -1,0 +1,1013 @@
+/* =========================================================
+   BRAHMARSHI PROJECTS PRIVATE LIMITED
+   PREMIUM CSS — PART 1
+   GLOBAL + HEADER + NAVIGATION
+========================================================= */
+
+
+/* ---------- GOOGLE FONTS ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+
+/* ---------- COLOR SYSTEM ---------- */
+
+:root {
+
+    --navy-950: #06101f;
+    --navy-900: #09182c;
+    --navy-800: #0d2340;
+    --navy-700: #14365f;
+
+    --orange-500: #f47b20;
+    --orange-400: #ff963f;
+    --orange-300: #ffb36f;
+
+    --white: #ffffff;
+    --off-white: #f7f9fc;
+
+    --text-dark: #101828;
+    --text: #526071;
+    --text-light: #8793a4;
+
+    --border: rgba(6, 16, 31, 0.10);
+
+    --shadow-small:
+        0 8px 25px rgba(6, 16, 31, 0.08);
+
+    --shadow-medium:
+        0 18px 50px rgba(6, 16, 31, 0.12);
+
+    --shadow-large:
+        0 30px 80px rgba(6, 16, 31, 0.16);
+
+    --radius-small: 12px;
+    --radius-medium: 20px;
+    --radius-large: 30px;
+
+    --ease:
+        cubic-bezier(.22, 1, .36, 1);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+
+body {
+
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: "DM Sans", sans-serif;
+
+    color: var(--text);
+
+    background: var(--white);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+button,
+input,
+textarea {
+
+    font: inherit;
+
+}
+
+
+button {
+
+    border: 0;
+
+}
+
+
+.container {
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 82px;
+
+    z-index: 9999;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid rgba(6, 16, 31, 0.07);
+
+    box-shadow:
+        0 5px 30px rgba(6, 16, 31, 0.04);
+
+    animation:
+        headerReveal .8s var(--ease) both;
+
+}
+
+
+/* HEADER ENTRY ANIMATION */
+
+@keyframes headerReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   HEADER INNER
+========================================================= */
+
+.header-inner {
+
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+
+    min-width: 0;
+
+    transition:
+        transform .4s var(--ease);
+
+}
+
+
+.brand:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   BRAND LOGO
+========================================================= */
+
+.brand-logo {
+
+    width: 52px;
+    height: 52px;
+
+    flex: 0 0 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    border:
+        1px solid rgba(6, 16, 31, 0.08);
+
+    box-shadow:
+        0 8px 25px rgba(6, 16, 31, 0.12);
+
+    position: relative;
+
+}
+
+
+/* LOGO SHINE */
+
+.brand-logo::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.75),
+            transparent
+        );
+
+    transform:
+        skewX(-25deg);
+
+    transition:
+        left .8s ease;
+
+    pointer-events: none;
+
+}
+
+
+.brand:hover .brand-logo::after {
+
+    left: 140%;
+
+}
+
+
+/* ACTUAL IMAGE */
+
+.brand-logo img {
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    padding: 5px;
+
+    border-radius: inherit;
+
+    transition:
+        transform .5s var(--ease);
+
+}
+
+
+/* LOGO HOVER */
+
+.brand:hover .brand-logo img {
+
+    transform:
+        scale(1.07)
+        rotate(-2deg);
+
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.brand-text {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.brand-name {
+
+    display: block;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--navy-950);
+
+    white-space: nowrap;
+
+}
+
+
+.brand-subtitle {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 8px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: var(--orange-500);
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-left: auto;
+
+}
+
+
+.nav-link {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    height: 82px;
+
+    color: var(--text-dark);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        color .35s ease;
+
+}
+
+
+/* NAV UNDERLINE */
+
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 20px;
+
+    width: 0;
+
+    height: 2px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange-500),
+            var(--orange-300)
+        );
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        width .4s var(--ease);
+
+}
+
+
+/* HOVER */
+
+.nav-link:hover {
+
+    color:
+        var(--orange-500);
+
+}
+
+
+.nav-link:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* ACTIVE */
+
+.nav-link.active {
+
+    color:
+        var(--orange-500);
+
+}
+
+
+.nav-link.active::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   HEADER BUTTON
+========================================================= */
+
+.header-btn {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 44px;
+
+    padding:
+        0 18px;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange-500),
+            var(--orange-400)
+        );
+
+    box-shadow:
+        0 10px 25px rgba(244, 123, 32, 0.25);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    transition:
+        transform .4s var(--ease),
+        box-shadow .4s ease;
+
+}
+
+
+.header-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 16px 35px rgba(244, 123, 32, 0.35);
+
+}
+
+
+/* BUTTON LIGHT EFFECT */
+
+.header-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 80%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    transform:
+        skewX(-25deg);
+
+    transition:
+        left .7s ease;
+
+}
+
+
+.header-btn:hover::before {
+
+    left: 130%;
+
+}
+
+
+.header-btn .arrow {
+
+    font-size: 15px;
+
+    transition:
+        transform .4s var(--ease);
+
+}
+
+
+.header-btn:hover .arrow {
+
+    transform:
+        translate(3px,-3px);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    border-radius: 12px;
+
+    background:
+        var(--navy-950);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px rgba(6, 16, 31, 0.18);
+
+}
+
+
+.menu-toggle span {
+
+    width: 19px;
+
+    height: 2px;
+
+    border-radius: 5px;
+
+    background:
+        var(--white);
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 980px) {
+
+    .container {
+
+        width:
+            min(100% - 30px, 900px);
+
+    }
+
+    .main-nav {
+
+        gap: 18px;
+
+    }
+
+    .nav-link {
+
+        font-size: 12px;
+
+    }
+
+    .header-btn {
+
+        padding:
+            0 14px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .site-header {
+
+        height: 72px;
+
+    }
+
+
+    .header-inner {
+
+        min-height: 72px;
+
+        gap: 10px;
+
+    }
+
+
+    .brand {
+
+        gap: 9px;
+
+    }
+
+
+    .brand-logo {
+
+        width: 44px;
+        height: 44px;
+
+        flex-basis: 44px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .brand-logo img {
+
+        padding: 4px;
+
+    }
+
+
+    .brand-name {
+
+        font-size: 12px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .brand-subtitle {
+
+        font-size: 6.5px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .main-nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+
+        left: 15px;
+        right: 15px;
+
+        padding: 12px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 4px;
+
+        border-radius: 20px;
+
+        background:
+            rgba(255,255,255,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        box-shadow:
+            0 25px 60px rgba(6,16,31,.15);
+
+        border:
+            1px solid rgba(6,16,31,.08);
+
+    }
+
+
+    .main-nav.show {
+
+        display: flex;
+
+        animation:
+            mobileNavIn .4s var(--ease) both;
+
+    }
+
+
+    @keyframes mobileNavIn {
+
+        from {
+
+            opacity: 0;
+
+            transform:
+                translateY(-12px)
+                scale(.97);
+
+        }
+
+        to {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+        }
+
+    }
+
+
+    .nav-link {
+
+        height: 48px;
+
+        padding:
+            0 15px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .nav-link::after {
+
+        display: none;
+
+    }
+
+
+    .nav-link:hover,
+    .nav-link.active {
+
+        background:
+            rgba(244,123,32,.09);
+
+    }
+
+
+    .header-btn {
+
+        min-height: 38px;
+
+        padding:
+            0 12px;
+
+        font-size: 10px;
+
+    }
+
+
+    .header-btn .arrow {
+
+        display: none;
+
+    }
+
+
+    .menu-toggle {
+
+        display: flex;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .container {
+
+        width:
+            calc(100% - 22px);
+
+    }
+
+
+    .brand-text {
+
+        max-width:
+            150px;
+
+    }
+
+
+    .brand-name {
+
+        font-size: 10.5px;
+
+    }
+
+
+    .brand-subtitle {
+
+        font-size: 5.5px;
+
+    }
+
+
+    .header-btn {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   SAFETY — PREVENT HORIZONTAL OVERFLOW
+========================================================= */
+
+.hero-section,
+.about-section,
+.products-section,
+.projects-section,
+.enquiry-section,
+.contact-section,
+.site-footer {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+}
